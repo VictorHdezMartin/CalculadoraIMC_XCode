@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var PesoStepper: UIStepper!
     @IBOutlet weak var AlturaStepper: UIStepper!
     
+    @IBOutlet weak var DatosContainer: UIView!
+    
     @IBOutlet weak var CalcularIMC: UIButton!
     
     @IBOutlet weak var PesoBajo: UILabel!
@@ -32,7 +34,6 @@ class ViewController: UIViewController {
         
         PesoStepper.value = 60
         AlturaStepper.value = 120
-        
     }
 
  // Para el peso  -------------------------------------------------------------------------
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
         initLabels()
         
         switch calculoIMC {
-        case 0...18.4:
+            case 0...18.4:
                 PesoBajo.text = String(format: "%.1f", calculoIMC)
                 PesoBajo.isHidden = false
             case 18.5...24.9:
@@ -85,6 +86,8 @@ class ViewController: UIViewController {
             }
  
     }
+    
+// Iniciamos todas las etiquetas  ----------------------------------------------------------------------
     
     func initLabels() {
         PesoBajo.text = ""
@@ -104,6 +107,17 @@ class ViewController: UIViewController {
     }
     
     
+// funcion para poder salir de una ventana modal asociada a un componente (boton),  --------------------
+// sin que tenga código    -----------------------------------------------------------------------------
+    
+    @IBAction func closeInfo(_ sender: UIStoryboardSegue) {
+    }
 
+// -----------------------------------------------------------------------------------------------------
+    
+    
+    
+    
+    
 }
 
